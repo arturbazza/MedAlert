@@ -1,0 +1,1 @@
+Ajuste variáveis de ambiente "SERVER_NAME: " . $_SERVER['SERVER_NAME']

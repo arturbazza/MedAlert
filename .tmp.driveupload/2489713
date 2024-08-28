@@ -1,0 +1,2 @@
+0000000000000000000000000000000000000000 9d7c067a421c0978178a038c1bd4c15272d7f7c5 arturbazza <agencia@fonzie.com.br> 1724842448 -0300	commit (initial): Inicial
+9d7c067a421c0978178a038c1bd4c15272d7f7c5 2ac51be07f79094027f9ad76752fd0a139da2eae arturbazza <agencia@fonzie.com.br> 1724846296 -0300	commit: Ajuste variáveis de ambiente "SERVER_NAME: " . $_SERVER['SERVER_NAME']
