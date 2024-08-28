@@ -24,9 +24,7 @@ header h1 {
 }
 
 header .logo {
-    float: left;
-    width: 150px;
-    /* ajuste o tamanho conforme necessário */
+    width: 250px;
     height: auto;
     padding: 5px;
 }

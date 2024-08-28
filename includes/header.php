@@ -1,3 +1,5 @@
+ <?php include_once '../config/db.php'; ?>
+<?=" | SERVERNAME: " . $servername . " - USERNAME: " . $username . " - PASS: " . $password. " - DBNAME: " . $dbname; ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,5 +10,5 @@
 </head>
 <body>
     <header>
-        <img src="http://localhost/medalert/imgs/logoMedAlert.jpg" alt="MedAlert Logo" class="logo">
+        <img src="http://localhost/medalert/imgs/logoMedAlert.png" alt="MedAlert Logo" class="logo">
     </header>
