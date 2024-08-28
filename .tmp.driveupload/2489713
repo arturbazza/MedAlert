@@ -1,5 +1,0 @@
-0000000000000000000000000000000000000000 9d7c067a421c0978178a038c1bd4c15272d7f7c5 arturbazza <agencia@fonzie.com.br> 1724842448 -0300	commit (initial): Inicial
-9d7c067a421c0978178a038c1bd4c15272d7f7c5 2ac51be07f79094027f9ad76752fd0a139da2eae arturbazza <agencia@fonzie.com.br> 1724846296 -0300	commit: Ajuste variáveis de ambiente "SERVER_NAME: " . $_SERVER['SERVER_NAME']
-2ac51be07f79094027f9ad76752fd0a139da2eae a254d2fbe097ce7cc2be46f0141a49a52f896d50 arturbazza <agencia@fonzie.com.br> 1724846304 -0300	commit: echo "SERVER_NAME: " . $_SERVER['SERVER_NAME']
-a254d2fbe097ce7cc2be46f0141a49a52f896d50 82cbc7d0a741ab724f332260fc97a5b01bcdc95f arturbazza <agencia@fonzie.com.br> 1724846316 -0300	commit: echo "SERVER_NAME: " . $_SERVER['SERVER_NAME']
-82cbc7d0a741ab724f332260fc97a5b01bcdc95f 9af388645539b24626fd9c9e7b483fc3445ae590 arturbazza <agencia@fonzie.com.br> 1724848870 -0300	commit: Logo
