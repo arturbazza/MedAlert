@@ -72,3 +72,71 @@ footer {
 main {
     padding: 20px;
 }
+
+/* Estilos para centralizar o formulário em uma box */
+form {
+    width: 100%;
+    max-width: 400px;
+    /* Largura máxima da box */
+    margin: 20px auto 80px;
+    /* Reduzindo margem superior e aumentando a inferior para espaço no footer */
+    padding: 20px;
+    border: 2px solid #5DADFF;
+    /* Linha azul ao redor da box */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    background-color: #f7f7f7;
+    /* Fundo claro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Adicionando sombra sutil à box */
+}
+
+/* Estilo para os campos de entrada */
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    /* Texto em uma cor um pouco mais forte */
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form select {
+    width: calc(100% - 10px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #5DADFF;
+    /* Contorno fino azul */
+    border-radius: 5px;
+    /* Bordas arredondadas */
+    background-color: #fff;
+    /* Fundo branco */
+    font-size: 16px;
+    color: #333;
+    /* Cor do texto */
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5DADFF;
+    /* Botão azul */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #4CAF50;
+    /* Verde suave ao passar o mouse */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    /* Reduzindo a margem para aproximar o título do formulário */
+}

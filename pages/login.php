@@ -11,7 +11,7 @@ if (isset($_SESSION['id_usuario'])) {
 ?>
 
 <main>
-    <h1>Login</h1>
+    <h2 style="text-align: center;">Login</h1>
     <form action="autenticar.php" method="POST">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
@@ -20,7 +20,9 @@ if (isset($_SESSION['id_usuario'])) {
         <input type="password" id="senha" name="senha" required>
         
         <button type="submit">Entrar</button>
+        <h4 style="text-align: center;">Não tem cadastro, clique <a href="register.php">aqui</a>.</h4>
     </form>
+    
     <?php
     // Exibe mensagens de erro, se houver
     if (isset($_SESSION['erro_login'])) {
@@ -28,6 +30,8 @@ if (isset($_SESSION['id_usuario'])) {
         unset($_SESSION['erro_login']);
     }
     ?>
+
+    
 </main>
 
 <?php include_once '../includes/footer.php'; ?>
