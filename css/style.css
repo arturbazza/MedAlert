@@ -1,0 +1,76 @@
+/* Cores suaves inspiradas no logo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    /* cor de fundo mais clara */
+    color: #555;
+    /* cor do texto suavizada */
+}
+
+header {
+    background-color: #8abb8b;
+    /* verde suave do logo */
+    color: white;
+    padding: 10px 20px;
+    text-align: left;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    display: inline-block;
+}
+
+header .logo {
+    float: left;
+    width: 150px;
+    /* ajuste o tamanho conforme necessário */
+    height: auto;
+    padding: 5px;
+}
+
+nav {
+    background-color: #5995d1;
+    /* azul suave inspirado no "Med" do logo */
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #FFA726;
+    /* laranja suave inspirado no "Alert" do logo */
+}
+
+footer {
+    background-color: #8abb8b;
+    /* verde suave do logo */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+main {
+    padding: 20px;
+}
