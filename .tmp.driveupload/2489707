@@ -1,1 +1,23 @@
-Ajuste variáveis de ambiente "SERVER_NAME: " . $_SERVER['SERVER_NAME']
+echo "SERVER_NAME: " . $_SERVER['SERVER_NAME']
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch is up to date with 'MedAlert2/master'.
+#
+# Changes to be committed:
+#	new file:   .tmp.driveupload/2489423
+#	new file:   .tmp.driveupload/2489667
+#	new file:   .tmp.driveupload/2489707
+#	new file:   .tmp.driveupload/2489709
+#	new file:   .tmp.driveupload/2489713
+#	new file:   .tmp.driveupload/2489715
+#	new file:   .tmp.driveupload/2489721
+#	new file:   .tmp.driveupload/2489725
+#	new file:   .tmp.driveupload/2489734
+#	new file:   .tmp.driveupload/2489736
+#	new file:   .tmp.driveupload/2489740
+#	new file:   .tmp.driveupload/2489744
+#	new file:   .tmp.driveupload/2489748
+#	new file:   .tmp.driveupload/2489750
+#
