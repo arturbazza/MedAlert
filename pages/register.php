@@ -1,9 +1,10 @@
-<?php include_once '../includes/header.php'; 
-include_once '../includes/menu.php'; ?>
+<?php include_once __DIR__ . '/../config/db.php'; 
+include_once __DIR__ . '/../includes/header.php'; 
+include_once __DIR__ . '/../includes/menu.php'; ?>
 
 <main>
     <h3 style="text-align: center;">Cadastro de Usuário</h3>
-    <form action="register_process.php" method="post">
+    <form action="<?= BASE_URL; ?>pages/register_process.php" method="post">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required>
         
@@ -30,5 +31,4 @@ include_once '../includes/menu.php'; ?>
     
 </main>
 
-
-<?php include_once '../includes/footer.php'; ?>
+<?php include_once __DIR__ . '/../includes/footer.php'; ?>

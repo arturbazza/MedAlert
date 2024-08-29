@@ -1,6 +1,6 @@
 <?php
 session_start(); // Inicia a sessão
-include_once '../config/db.php'; // Arquivo de conexão ao banco de dados
+include_once __DIR__ . '/../config/db.php'; // Arquivo de conexão ao banco de dados
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
@@ -22,21 +22,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Senha correta, inicia a sessão
             $_SESSION['id_usuario'] = $id_usuario;
             $_SESSION['nome_usuario'] = $nome;
-            header('Location: /index.php'); // Redireciona para a página inicial
+            header('Location: ' . BASE_URL . 'pages/index.php'); // Redireciona para a página inicial
             exit;
         } else {
             // Senha incorreta
             $_SESSION['erro_login'] = "Email ou senha inválidos.";
-            header('Location: login.php');
+            header('Location: ' . BASE_URL . 'pages/login.php');
             exit;
         }
     } else {
         // Usuário não encontrado
         $_SESSION['erro_login'] = "Email ou senha inválidos.";
-        header('Location: login.php');
+        header('Location: ' . BASE_URL . 'pages/login.php');
         exit;
     }
 } else {
-    header('Location: login.php'); // Redireciona se não for uma requisição POST
+    header('Location: ' . BASE_URL . 'pages/login.php'); // Redireciona se não for uma requisição POST
     exit;
 }
