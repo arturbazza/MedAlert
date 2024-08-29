@@ -9,5 +9,5 @@
 </head>
 <body>
     <header>
-        <img src="<?= BASE_URL; ?>imgs/logoMedAlert.png" alt="MedAlert Logo" class="logo">
+        <img src="<?= BASE_URL; ?>imgs/LogoMedAlert.png" alt="MedAlert Logo" class="logo">
     </header>

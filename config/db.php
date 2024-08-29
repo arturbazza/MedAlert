@@ -13,7 +13,7 @@ if ($_SERVER['SERVER_NAME'] === "localhost") {
     $username = "medalert01";
     $password = "pixel1953";
     $dbname = "medalert01";
-    $base_url = "https://medalert.com.br/";
+    $base_url = "https://medalert.com.br/medalert/";
 
 }
 
