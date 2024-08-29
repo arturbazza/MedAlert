@@ -9,9 +9,9 @@ if ($_SERVER['SERVER_NAME'] === "localhost") {
 
 } elseif ($_SERVER['SERVER_NAME'] === "medalert.com.br") {
 
-    $servername = "medalert.com.br";
+    $servername = "mysql.medalert.com.br";
     $username = "medalert01";
-    $password = "medalert01";
+    $password = "pixel1953";
     $dbname = "medalert01";
     $base_url = "https://medalert.com.br/";
 
