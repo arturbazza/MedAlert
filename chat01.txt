@@ -1,0 +1,492 @@
+Vou precisar de mais ajuda!
+
+Estrutura majuatsda e inserindo usuário. Legal!
+
+Agora precisamos fazer duas coisas que inserir "pacientes", "medicamentos" e "alertas".
+
+Como todos são relacionado com o "usuario" que acabamos te fazer tudo tem que fazer junto agora e se r5elacionar.
+
+Preciso que me envie os códigos completos e especificado onde o arquivo ficará de acordo com a estrutura que te envio.
+
+Adicione no menu os serviços que te solicito.
+
+Ajuste o CSS para ficar responsivo ao máximo.
+
+Vou te "refrescar a memória" ;-)  enviando os dados com a estrutura montada para que siga a mesma ordem de insersão, estilos e a montagem do sistema:
+
+// BD 'medalert':
+
+-- Tabela usuarios
+CREATE TABLE usuarios (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    telefone VARCHAR(15),
+    tipo_usuario ENUM('cuidador', 'enfermeiro', 'medico', 'responsavel') NOT NULL,
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabela pacientes
+CREATE TABLE pacientes (
+    id_paciente INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    sexo ENUM('M', 'F', 'O') NOT NULL, -- Masculino -- Feminino -- Outro
+    telefone VARCHAR(15),
+    endereco VARCHAR(255),
+    id_usuario INT,
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
+);
+
+-- Tabela medicamentos
+CREATE TABLE medicamentos (
+    id_medicamento INT AUTO_INCREMENT PRIMARY KEY,
+    nome_medicamento VARCHAR(100) NOT NULL,
+    dosagem VARCHAR(50) NOT NULL,
+    frequencia VARCHAR(50) NOT NULL,
+    descricao TEXT,
+    id_paciente INT,
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_paciente) REFERENCES pacientes(id_paciente)
+);
+
+-- Tabela alertas
+CREATE TABLE alertas (
+    id_alerta INT AUTO_INCREMENT PRIMARY KEY,
+    data_hora_alerta DATETIME NOT NULL,
+    status_alerta ENUM('pendente', 'confirmado', 'ignorado') NOT NULL,
+    metodo_alerta ENUM('email', 'sms', 'app') NOT NULL,
+    data_confirmacao DATETIME,
+    id_medicamento INT,
+    FOREIGN KEY (id_medicamento) REFERENCES medicamentos(id_medicamento)
+);
+
+// Arquivo /index.php:
+
+<?php
+include_once __DIR__ . '/config/db.php';
+
+// Redireciona para pages/index.php
+header('Location: ' . BASE_URL . 'pages/index.php');
+exit;
+?>
+
+
+// Arquivo /config/db.php:
+
+<?php
+if ($_SERVER['SERVER_NAME'] === "localhost") {
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "medalert";
+    $base_url = "http://localhost/medalert/";
+
+} elseif ($_SERVER['SERVER_NAME'] === "medalert.com.br") {
+
+    $servername = "mysql.medalert.com.br";
+    $username = "medalert01";
+    $password = "pixel1953";
+    $dbname = "medalert01";
+    $base_url = "https://medalert.com.br/medalert/";
+
+}
+
+// Criar conexão
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar conexão
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
+}
+
+// Define a constante BASE_URL
+define('BASE_URL', $base_url);
+?>
+
+// Arquivo /includes/footer.php:
+
+<footer>
+    <p>Copyright © consit 2024 all right reserved</p>
+</footer>
+</body>
+</html>
+
+// Arquivo /includes/header.php:
+
+<?php include_once __DIR__ . '/../config/db.php'; ?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedAlert</title>
+    <link rel="stylesheet" href="<?= BASE_URL; ?>css/style.css">
+</head>
+<body>
+    <header>
+        <a href="http://www.medalert.com.br"><img src="<?= BASE_URL; ?>imgs/LogoMedAlert.png" alt="Ir para o site" class="logo"></a>
+    </header>
+
+// Arquivo /includes/menu.php:
+
+<nav>
+    <ul>
+        <li><a href="http://www.medalert.com.br">Site</a></li>
+        <li><a href="<?= BASE_URL; ?>pages/index.php">Sistema</a></li>
+        <li><a href="<?= BASE_URL; ?>pages/login.php">Login</a></li>
+        <li><a href="<?= BASE_URL; ?>pages/logout.php">Sair</a></li>
+    </ul>
+</nav>
+
+
+// Arquivo /pages/autenticar.php:
+
+<?php
+session_start(); // Inicia a sessão
+include_once __DIR__ . '/../config/db.php'; // Arquivo de conexão ao banco de dados
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    // Consulta ao banco de dados
+    $sql = "SELECT id_usuario, nome, senha FROM usuarios WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($id_usuario, $nome, $hash_senha);
+        $stmt->fetch();
+
+        // Verifica se a senha está correta
+        if (password_verify($senha, $hash_senha)) {
+            // Senha correta, inicia a sessão
+            $_SESSION['id_usuario'] = $id_usuario;
+            $_SESSION['nome_usuario'] = $nome;
+            header('Location: ' . BASE_URL . 'pages/index.php'); // Redireciona para a página inicial
+            exit;
+        } else {
+            // Senha incorreta
+            $_SESSION['erro_login'] = "Email ou senha inválidos.";
+            header('Location: ' . BASE_URL . 'pages/login.php');
+            exit;
+        }
+    } else {
+        // Usuário não encontrado
+        $_SESSION['erro_login'] = "Email ou senha inválidos.";
+        header('Location: ' . BASE_URL . 'pages/login.php');
+        exit;
+    }
+} else {
+    header('Location: ' . BASE_URL . 'pages/login.php'); // Redireciona se não for uma requisição POST
+    exit;
+}
+
+// Arquivo /pages/index.php:
+
+<?php
+session_start();
+include_once __DIR__ . '/../config/db.php'; // Ajusta o caminho usando __DIR__
+
+// Verifica se o usuário não está logado
+if (!isset($_SESSION['id_usuario'])) {
+    header('Location: ' . BASE_URL . 'pages/login.php');
+    exit;
+}
+
+include_once __DIR__ . '/../includes/header.php';
+include_once __DIR__ . '/../includes/menu.php';
+?>
+
+<main>
+    <h1>Bem-vindo, <?php echo $_SESSION['nome_usuario']; ?>!</h1>
+    <p>Use o menu acima para navegar pelo sistema.</p>
+</main>
+
+<?php include_once __DIR__ . '/../includes/footer.php'; ?>
+
+// Arquivo /pages/login.php:
+
+<?php
+session_start(); // Inicia a sessão
+include_once __DIR__ . '/../config/db.php';
+include_once __DIR__ . '/../includes/header.php';
+include_once __DIR__ . '/../includes/menu.php';
+
+// Verifica se o usuário já está logado
+if (isset($_SESSION['id_usuario'])) {
+    header('Location: ' . BASE_URL . 'pages/index.php');
+    exit;
+}
+?>
+
+<main>
+    <h3 style="text-align: center;">Tela de autenticação</h3>
+    <form action="<?= BASE_URL; ?>pages/autenticar.php" method="POST">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+        
+        <button type="submit">Entrar</button>
+        <h5 style="text-align: center;">Não tem cadastro? <a href="<?= BASE_URL; ?>pages/register.php">Clique aqui</a>.</h5>
+    </form>
+    
+    <?php
+    // Exibe mensagens de erro, se houver
+    if (isset($_SESSION['erro_login'])) {
+        echo "<p style='color:red;'>".$_SESSION['erro_login']."</p>";
+        unset($_SESSION['erro_login']);
+    }
+    ?>
+</main>
+
+<?php include_once __DIR__ . '/../includes/footer.php'; ?>
+
+// Arquivo /pages/logout.php:
+
+<?php
+session_start();
+include_once '../config/db.php'; // Inclui o arquivo de configuração para definir a constante BASE_URL
+
+session_unset(); // Limpa todas as variáveis de sessão
+session_destroy(); // Destrói a sessão
+
+// Redireciona para a página inicial usando a BASE_URL
+header('Location: ' . BASE_URL . 'pages/index.php');
+exit;
+?>
+
+// Arquivo /pages/register_process.php:
+
+<?php
+include '../config/db.php'; // Arquivo de configuração com a conexão ao banco de dados
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT); // Hash da senha para segurança
+    $telefone = $_POST['telefone'];
+    $tipo_usuario = $_POST['tipo_usuario'];
+
+    // Verificar se o email já está cadastrado
+    $sql = "SELECT id_usuario FROM usuarios WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+    
+    if ($stmt->num_rows > 0) {
+        echo "Este email já está cadastrado!";
+    } else {
+        // Inserir o novo usuário no banco de dados
+        $sql = "INSERT INTO usuarios (nome, email, senha, telefone, tipo_usuario) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sssss", $nome, $email, $senha, $telefone, $tipo_usuario);
+
+        if ($stmt->execute()) {
+            echo "Usuário cadastrado com sucesso!";
+        } else {
+            echo "Erro ao cadastrar usuário: " . $conn->error;
+        }
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
+// Arquivo /pages/register.php:
+
+<?php include_once __DIR__ . '/../config/db.php'; 
+include_once __DIR__ . '/../includes/header.php'; 
+include_once __DIR__ . '/../includes/menu.php'; ?>
+
+<main>
+    <h3 style="text-align: center;">Cadastro de Usuário</h3>
+    <form action="<?= BASE_URL; ?>pages/register_process.php" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+        
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone">
+        
+        <label for="tipo_usuario">Tipo de Usuário:</label>
+        <select id="tipo_usuario" name="tipo_usuario" required>
+            <option value="cuidador">Cuidador</option>
+            <option value="enfermeiro">Enfermeiro</option>
+            <option value="medico">Médico</option>
+            <option value="responsavel">Responsável</option>
+        </select>
+        
+        <button type="submit">Cadastrar</button>
+        <p><a href="javascript:history.back()" title="Voltar para a página anterior"><< Voltar</a></p>
+    </form>
+    
+</main>
+
+<?php include_once __DIR__ . '/../includes/footer.php'; ?>
+
+// Arquivo /css/style.css:
+
+/* Cores suaves inspiradas no logo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    /* cor de fundo mais clara */
+    color: #555;
+    /* cor do texto suavizada */
+}
+
+header {
+    background-color: #9fcfa1;
+    /* verde suave do logo */
+    color: white;
+    padding: 10px 20px;
+    text-align: left;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    display: inline-block;
+}
+
+header .logo {
+    width: 250px;
+    height: auto;
+    padding: 5px;
+}
+
+nav {
+    background-color: #bdd6f0;
+    /* azul suave inspirado no "Med" do logo */
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: #1065b9;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #FFA726;
+    /* laranja suave inspirado no "Alert" do logo */
+}
+
+footer {
+    background-color: #8abb8b;
+    /* verde suave do logo */
+    color: white;
+    text-align: center;
+    /* padding: 1px 0; */
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+main {
+    padding-bottom: 10px;
+}
+
+/* Estilos para centralizar o formulário em uma box */
+form {
+    width: 100%;
+    max-width: 400px;
+    /* Largura máxima da box */
+    margin: 20px auto 80px;
+    /* Reduzindo margem superior e aumentando a inferior para espaço no footer */
+    padding: 20px;
+    border: 2px solid #5DADFF;
+    /* Linha azul ao redor da box */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    background-color: #f7f7f7;
+    /* Fundo claro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Adicionando sombra sutil à box */
+}
+
+/* Estilo para os campos de entrada */
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 10pt;
+    color: #333;
+    /* Texto em uma cor um pouco mais forte */
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form select {
+    width: calc(100% - 10px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #5DADFF;
+    /* Contorno fino azul */
+    border-radius: 1px;
+    /* Bordas arredondadas */
+    background-color: #fff;
+    /* Fundo branco */
+    font-size: 16px;
+    color: #333;
+    /* Cor do texto */
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5DADFF;
+    /* Botão azul */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #4CAF50;
+    /* Verde suave ao passar o mouse */
+}
+
+form a {
+    font-size: small;
+    font-style: normal;
+    text-decoration: none;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    /* Reduzindo a margem para aproximar o título do formulário */
+}

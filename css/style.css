@@ -1,48 +1,44 @@
-/* Cores suaves inspiradas no logo */
+/* Estilos gerais */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f7f7f7;
-    /* cor de fundo mais clara */
     color: #555;
-    /* cor do texto suavizada */
 }
 
 header {
     background-color: #9fcfa1;
-    /* verde suave do logo */
     color: white;
     padding: 10px 20px;
-    text-align: left;
+    text-align: center;
     position: relative;
-}
-
-header h1 {
-    margin: 0;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 header .logo {
-    width: 250px;
+    width: 200px;
     height: auto;
     padding: 5px;
 }
 
 nav {
     background-color: #bdd6f0;
-    /* azul suave inspirado no "Med" do logo */
-    overflow: hidden;
 }
 
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 nav ul li {
-    float: left;
+    margin: 5px;
 }
 
 nav ul li a {
@@ -55,74 +51,62 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: #FFA726;
-    /* laranja suave inspirado no "Alert" do logo */
 }
 
 footer {
     background-color: #8abb8b;
-    /* verde suave do logo */
     color: white;
     text-align: center;
-    /* padding: 1px 0; */
-    position: fixed;
+    padding: 10px;
+    position: relative;
     width: 100%;
     bottom: 0;
+    margin-top: 20px;
 }
 
+/* Estilos para o conteúdo principal */
 main {
-    padding-bottom: 10px;
+    padding: 20px;
+    margin: 20px;
 }
 
-/* Estilos para centralizar o formulário em uma box */
+/* Estilos para formulários */
 form {
     width: 100%;
     max-width: 400px;
-    /* Largura máxima da box */
-    margin: 20px auto 80px;
-    /* Reduzindo margem superior e aumentando a inferior para espaço no footer */
+    margin: 20px auto;
     padding: 20px;
     border: 2px solid #5DADFF;
-    /* Linha azul ao redor da box */
     border-radius: 10px;
-    /* Bordas arredondadas */
     background-color: #f7f7f7;
-    /* Fundo claro */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Adicionando sombra sutil à box */
 }
 
-/* Estilo para os campos de entrada */
 form label {
     display: block;
     margin-bottom: 5px;
     font-size: 10pt;
     color: #333;
-    /* Texto em uma cor um pouco mais forte */
 }
 
 form input[type="text"],
 form input[type="email"],
 form input[type="password"],
 form select {
-    width: calc(100% - 10px);
+    width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #5DADFF;
-    /* Contorno fino azul */
-    border-radius: 1px;
-    /* Bordas arredondadas */
+    border-radius: 5px;
     background-color: #fff;
-    /* Fundo branco */
     font-size: 16px;
     color: #333;
-    /* Cor do texto */
 }
 
 form button {
     width: 100%;
     padding: 10px;
     background-color: #5DADFF;
-    /* Botão azul */
     border: none;
     border-radius: 5px;
     color: white;
@@ -132,17 +116,55 @@ form button {
 
 form button:hover {
     background-color: #4CAF50;
-    /* Verde suave ao passar o mouse */
 }
 
 form a {
     font-size: small;
-    font-style: normal;
     text-decoration: none;
 }
 
-h2 {
+h2,
+h3 {
     text-align: center;
     margin-bottom: 20px;
-    /* Reduzindo a margem para aproximar o título do formulário */
+}
+
+p {
+    margin: 10px 0;
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 600px) {
+    header .logo {
+        width: 150px;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    footer {
+        padding: 5px;
+    }
+
+    main {
+        margin: 10px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"],
+    form select {
+        padding: 8px;
+    }
+
+    form button {
+        padding: 8px;
+        font-size: 14px;
+    }
 }
