@@ -10,7 +10,7 @@ body {
 }
 
 header {
-    background-color: #8abb8b;
+    background-color: #9fcfa1;
     /* verde suave do logo */
     color: white;
     padding: 10px 20px;
@@ -30,7 +30,7 @@ header .logo {
 }
 
 nav {
-    background-color: #5995d1;
+    background-color: #bdd6f0;
     /* azul suave inspirado no "Med" do logo */
     overflow: hidden;
 }
@@ -47,7 +47,7 @@ nav ul li {
 
 nav ul li a {
     display: block;
-    color: white;
+    color: #1065b9;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -63,14 +63,14 @@ footer {
     /* verde suave do logo */
     color: white;
     text-align: center;
-    padding: 10px 0;
+    /* padding: 1px 0; */
     position: fixed;
     width: 100%;
     bottom: 0;
 }
 
 main {
-    padding: 20px;
+    padding-bottom: 10px;
 }
 
 /* Estilos para centralizar o formulário em uma box */
@@ -94,8 +94,8 @@ form {
 /* Estilo para os campos de entrada */
 form label {
     display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 10pt;
     color: #333;
     /* Texto em uma cor um pouco mais forte */
 }
@@ -106,10 +106,10 @@ form input[type="password"],
 form select {
     width: calc(100% - 10px);
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border: 1px solid #5DADFF;
     /* Contorno fino azul */
-    border-radius: 5px;
+    border-radius: 1px;
     /* Bordas arredondadas */
     background-color: #fff;
     /* Fundo branco */
@@ -133,6 +133,12 @@ form button {
 form button:hover {
     background-color: #4CAF50;
     /* Verde suave ao passar o mouse */
+}
+
+form a {
+    font-size: small;
+    font-style: normal;
+    text-decoration: none;
 }
 
 h2 {

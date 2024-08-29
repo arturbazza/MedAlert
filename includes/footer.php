@@ -1,5 +1,5 @@
 <footer>
-    <p>Desenvolvido por Artur</p>
+    <p>Copyright © consit 2024 all right reserved</p>
 </footer>
 </body>
 </html>

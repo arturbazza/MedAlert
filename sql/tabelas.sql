@@ -5,7 +5,7 @@ CREATE TABLE usuarios (
     email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(255) NOT NULL,
     telefone VARCHAR(15),
-    tipo_usuario ENUM('cuidador', 'enfermeiro') NOT NULL,
+    tipo_usuario ENUM('cuidador', 'enfermeiro', 'medico', 'responsavel') NOT NULL,
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
