@@ -1,5 +1,6 @@
 <nav>
-    <ul>
+    <button id="menu-toggle">☰ MENU</button>
+    <ul id="menu">
         <li><a href="http://www.medalert.com.br">Site</a></li>
         <li><a href="<?= BASE_URL; ?>pages/index.php">Sistema</a></li>
         <li><a href="<?= BASE_URL; ?>pages/pacientes.php">Pacientes</a></li>
@@ -9,3 +10,11 @@
         <li><a href="<?= BASE_URL; ?>pages/logout.php">Sair</a></li>
     </ul>
 </nav>
+
+<script>
+// Script para alternar o menu em dispositivos móveis
+document.getElementById('menu-toggle').addEventListener('click', function() {
+    var menu = document.getElementById('menu');
+    menu.classList.toggle('active');
+});
+</script>

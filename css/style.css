@@ -26,6 +26,7 @@ header .logo {
 
 nav {
     background-color: #bdd6f0;
+    position: relative;
 }
 
 nav ul {
@@ -33,7 +34,6 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -58,10 +58,65 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
-    position: relative;
+    position: fixed;
     width: 100%;
     bottom: 0;
-    margin-top: 20px;
+    left: 0;
+}
+
+/* Estilos para o menu em dispositivos móveis */
+#menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #bdd6f0;
+        position: absolute;
+        top: 50px;
+        left: 0;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    #menu-toggle {
+        display: block;
+        background-color: #1065b9;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        width: 100%;
+        text-align: left;
+    }
+
+    nav ul li {
+        margin: 0;
+        width: 100%;
+    }
+
+    nav ul li a {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    header .logo {
+        width: 150px;
+    }
+
+    footer {
+        padding: 5px;
+    }
+
+    main {
+        margin: 10px;
+    }
 }
 
 /* Estilos para o conteúdo principal */
@@ -131,40 +186,4 @@ h3 {
 
 p {
     margin: 10px 0;
-}
-
-/* Estilos para dispositivos móveis */
-@media (max-width: 600px) {
-    header .logo {
-        width: 150px;
-    }
-
-    nav ul li {
-        width: 100%;
-        text-align: center;
-    }
-
-    footer {
-        padding: 5px;
-    }
-
-    main {
-        margin: 10px;
-    }
-
-    form {
-        padding: 15px;
-    }
-
-    form input[type="text"],
-    form input[type="email"],
-    form input[type="password"],
-    form select {
-        padding: 8px;
-    }
-
-    form button {
-        padding: 8px;
-        font-size: 14px;
-    }
 }
