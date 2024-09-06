@@ -10,14 +10,6 @@ if (!isset($_SESSION['id_usuario'])) {
     exit;
 }
 
-// Verifica se o usuário tem permissão para gerenciar outros usuários
-// Isso depende de como você deseja gerenciar as permissões, aqui estou assumindo que apenas administradores podem acessar.
-// if ($_SESSION['tipo_usuario'] != 'admin') {
-//     echo "<p style='color:red;'>Você não tem permissão para acessar esta página.</p>";
-//     include_once __DIR__ . '/../includes/footer.php';
-//     exit;
-// }
-
 // Lógica para exclusão de usuário
 if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
@@ -27,9 +19,9 @@ if (isset($_GET['delete_id'])) {
     $stmt_delete->bind_param("i", $delete_id);
 
     if ($stmt_delete->execute()) {
-        echo "<p>Usuário excluído com sucesso!</p>";
+        echo "<br><br><p style='color: red; text-align: center; font-weight: bold;'>Usuário excluído com sucesso!</p>";
     } else {
-        echo "<p>Erro ao excluir usuário: " . $conn->error . "</p>";
+        echo "<br><br><p style='color: red; text-align: center; font-weight: bold;'>Erro ao excluir usuário: " . $conn->error . "</p>";
     }
 }
 
