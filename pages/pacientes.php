@@ -52,15 +52,15 @@ $result = $stmt->get_result();
         <label for="data_nascimento">Data de Nascimento:</label>
         <input type="text" id="data_nascimento" name="data_nascimento" placeholder="dd/mm/aaaa" pattern="\d{2}/\d{2}/\d{4}" required>
 
-        <label for="sexo">Sexo:</label>
+        <label for="sexo" style="width: 99%;">Sexo:</label>
         <select id="sexo" name="sexo" required>
             <option value="M">Masculino</option>
             <option value="F">Feminino</option>
             <option value="O">Outro</option>
         </select>
 
-        <label for="telefone">Telefone:</label>
-        <input type="text" id="telefone" name="telefone">
+        <label for="telefone">Telefone (somente números):</label>
+        <input type="text" id="telefone" name="telefone" placeholder="00123456789">
 
         <label for="endereco">Endereço:</label>
         <input type="text" id="endereco" name="endereco">
