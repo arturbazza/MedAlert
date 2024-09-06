@@ -7,6 +7,7 @@
         <li><a href="<?= BASE_URL; ?>pages/lista_pacientes.php">Lista Pacientes</a></li>
         <li><a href="<?= BASE_URL; ?>pages/medicamentos.php">Medicamentos</a></li>
         <li><a href="<?= BASE_URL; ?>pages/alertas.php">Alertas</a></li>
+        <li><a href="<?= BASE_URL; ?>pages/lista_alertas.php">Lista Alertas</a></li>
         <li><a href="<?= BASE_URL; ?>pages/usuarios.php">Usuários</a></li>
         <li><a href="<?= BASE_URL; ?>pages/login.php">Login</a></li>
         <li><a href="<?= BASE_URL; ?>pages/logout.php">Sair</a></li>

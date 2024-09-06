@@ -12,10 +12,16 @@ if (!isset($_SESSION['id_usuario'])) {
 
 // Lógica para inserir um novo alerta
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $data_hora_alerta = $_POST['data_hora_alerta'];
+    $data_alerta = $_POST['data_alerta']; // Recebe a data no formato dd/mm/aaaa
+    $hora_alerta = $_POST['hora_alerta']; // Recebe a hora no formato HH:mm
     $status_alerta = 'pendente';
     $metodo_alerta = $_POST['metodo_alerta'];
     $id_medicamento = $_POST['id_medicamento'];
+
+    // Converte a data de dd/mm/aaaa para aaaa-mm-dd
+    $data_formatada = DateTime::createFromFormat('d/m/Y', $data_alerta)->format('Y-m-d');
+    // Concatena a data e a hora para o formato MySQL
+    $data_hora_alerta = $data_formatada . ' ' . $hora_alerta . ':00';
 
     $sql = "INSERT INTO alertas (data_hora_alerta, status_alerta, metodo_alerta, id_medicamento) 
             VALUES (?, ?, ?, ?)";
@@ -23,9 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("sssi", $data_hora_alerta, $status_alerta, $metodo_alerta, $id_medicamento);
 
     if ($stmt->execute()) {
-        echo "<p>Alerta adicionado com sucesso!</p>";
+        echo "<p style='color: green; text-align: center;'>Alerta adicionado com sucesso!</p>";
     } else {
-        echo "<p>Erro ao adicionar alerta: " . $conn->error . "</p>";
+        echo "<p style='color: red; text-align: center;'>Erro ao adicionar alerta: " . $conn->error . "</p>";
     }
 }
 
@@ -41,8 +47,11 @@ $result_medicamentos = $stmt_medicamentos->get_result();
     <h3 style="text-align: center;">Gerenciar Alertas</h3>
 
     <form action="" method="POST">
-        <label for="data_hora_alerta">Data e Hora do Alerta:</label>
-        <input type="datetime-local" id="data_hora_alerta" name="data_hora_alerta" required>
+        <label for="data_alerta">Data do Alerta:</label>
+        <input type="text" id="data_alerta" name="data_alerta" placeholder="dd/mm/aaaa" pattern="\d{2}/\d{2}/\d{4}" required>
+
+        <label for="hora_alerta">Hora do Alerta:</label>
+        <input type="time" id="hora_alerta" name="hora_alerta" required>
 
         <label for="metodo_alerta">Método de Alerta:</label>
         <select id="metodo_alerta" name="metodo_alerta" required>

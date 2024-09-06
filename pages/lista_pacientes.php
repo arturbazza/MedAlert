@@ -10,30 +10,6 @@ if (!isset($_SESSION['id_usuario'])) {
     exit;
 }
 
-// // Lógica para inserir um novo paciente
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//     $nome = $_POST['nome'];
-//     $data_nascimento = $_POST['data_nascimento'];
-//     $sexo = $_POST['sexo'];
-//     $telefone = $_POST['telefone'];
-//     $endereco = $_POST['endereco'];
-//     $id_usuario = $_SESSION['id_usuario'];
-
-//     // Converte a data de dd/mm/aaaa para aaaa-mm-dd
-//     $data_nascimento_formatada = DateTime::createFromFormat('d/m/Y', $data_nascimento)->format('Y-m-d');
-
-//     $sql = "INSERT INTO pacientes (nome, data_nascimento, sexo, telefone, endereco, id_usuario) 
-//             VALUES (?, ?, ?, ?, ?, ?)";
-//     $stmt = $conn->prepare($sql);
-//     $stmt->bind_param("sssssi", $nome, $data_nascimento_formatada, $sexo, $telefone, $endereco, $id_usuario);
-
-//     if ($stmt->execute()) {
-//         echo "<p style='text-align: center; color: green;'>Paciente adicionado com sucesso!</p>";
-//     } else {
-//         echo "<p style='text-align: center; color: red;'>Erro ao adicionar paciente: " . $conn->error . "</p>";
-//     }
-// }
-
 // Recupera a lista de pacientes
 $sql = "SELECT * FROM pacientes WHERE id_usuario = ?";
 $stmt = $conn->prepare($sql);

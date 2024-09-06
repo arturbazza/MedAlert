@@ -67,13 +67,6 @@ $result = $stmt->get_result();
 
         <button type="submit">Adicionar Paciente</button>
     </form>
-
-    <h3>Lista de Pacientes</h3>
-    <ul>
-        <?php while ($row = $result->fetch_assoc()): ?>
-            <li><?php echo $row['nome']; ?> (<?php echo date('d/m/Y', strtotime($row['data_nascimento'])); ?>)</li>
-        <?php endwhile; ?>
-    </ul>
 </main>
 
 <?php include_once __DIR__ . '/../includes/footer.php'; ?>
