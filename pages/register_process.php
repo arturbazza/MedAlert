@@ -16,7 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->store_result();
     
     if ($stmt->num_rows > 0) {
-        echo "<p style='color: red; text-align: center;'>Este email já está cadastrado!</p>";
+        // Exibe uma mensagem de alerta em JavaScript e permanece na mesma página
+        echo "<script>alert('Este email já está cadastrado!');</script>";
     } else {
         // Inserir o novo usuário no banco de dados
         $sql = "INSERT INTO usuarios (nome, email, senha, telefone, tipo_usuario) VALUES (?, ?, ?, ?, ?)";
