@@ -19,15 +19,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $endereco = $_POST['endereco'];
     $id_usuario = $_SESSION['id_usuario'];
 
+    // Converte a data de dd/mm/aaaa para aaaa-mm-dd
+    $data_nascimento_formatada = DateTime::createFromFormat('d/m/Y', $data_nascimento)->format('Y-m-d');
+
     $sql = "INSERT INTO pacientes (nome, data_nascimento, sexo, telefone, endereco, id_usuario) 
             VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssi", $nome, $data_nascimento, $sexo, $telefone, $endereco, $id_usuario);
+    $stmt->bind_param("sssssi", $nome, $data_nascimento_formatada, $sexo, $telefone, $endereco, $id_usuario);
 
     if ($stmt->execute()) {
-        echo "<p>Paciente adicionado com sucesso!</p>";
+        echo "<p style='text-align: center; color: green;'>Paciente adicionado com sucesso!</p>";
     } else {
-        echo "<p>Erro ao adicionar paciente: " . $conn->error . "</p>";
+        echo "<p style='text-align: center; color: red;'>Erro ao adicionar paciente: " . $conn->error . "</p>";
     }
 }
 
@@ -47,7 +50,7 @@ $result = $stmt->get_result();
         <input type="text" id="nome" name="nome" required>
 
         <label for="data_nascimento">Data de Nascimento:</label>
-        <input type="date" id="data_nascimento" name="data_nascimento" required>
+        <input type="text" id="data_nascimento" name="data_nascimento" placeholder="dd/mm/aaaa" pattern="\d{2}/\d{2}/\d{4}" required>
 
         <label for="sexo">Sexo:</label>
         <select id="sexo" name="sexo" required>
@@ -68,7 +71,7 @@ $result = $stmt->get_result();
     <h3>Lista de Pacientes</h3>
     <ul>
         <?php while ($row = $result->fetch_assoc()): ?>
-            <li><?php echo $row['nome']; ?> (<?php echo $row['data_nascimento']; ?>)</li>
+            <li><?php echo $row['nome']; ?> (<?php echo date('d/m/Y', strtotime($row['data_nascimento'])); ?>)</li>
         <?php endwhile; ?>
     </ul>
 </main>

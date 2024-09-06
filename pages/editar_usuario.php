@@ -10,13 +10,6 @@ if (!isset($_SESSION['id_usuario'])) {
     exit;
 }
 
-// Verifica se o usuário tem permissão para editar outros usuários
-// if ($_SESSION['tipo_usuario'] != 'admin') {
-//     echo "<p style='color:red;'>Você não tem permissão para acessar esta página.</p>";
-//     include_once __DIR__ . '/../includes/footer.php';
-//     exit;
-// }
-
 // Lógica para atualizar o usuário
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id_usuario = $_POST['id_usuario'];
@@ -30,7 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt_update->bind_param("ssssi", $nome, $email, $telefone, $tipo_usuario, $id_usuario);
 
     if ($stmt_update->execute()) {
-        echo "<p>Usuário atualizado com sucesso!</p>";
+        echo "<br><div style='color: green; text-align: center; font-weight: bold;'>Usuário atualizado com sucesso!<br>
+        <a href=\"javascript:history.back()\" title=\"Voltar para a página anterior\" style='color: green; text-align: center; font-weight: bold;'><< Voltar</a></div>";
     } else {
         echo "<p>Erro ao atualizar usuário: " . $conn->error . "</p>";
     }
