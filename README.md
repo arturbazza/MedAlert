@@ -2,7 +2,12 @@
 
 ### PHP 8 + MySql 8 + HTML 5 + Bootstrap 4
 
-App MedAlert para projeto de TCC para Técnico em Informática
+App MedAlert para projeto de TCC para Técnico em Informática.
+
+### O que é?
+#### Gestão de Medicamentos
+
+Facilitamos o controle de medicações com lembretes eficientes e interface intuitiva.
 
 ### Créditos
 
