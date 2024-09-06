@@ -12,6 +12,11 @@ if (isset($_SESSION['id_usuario'])) {
 ?>
 
 <main>
+    <?php
+if (isset($_GET['msg']) && $_GET['msg'] == 'success') {
+    echo "<p style='color: green; text-align: center; font-weight: bold;'>Usuário cadastrado com sucesso! Faça login.</p>";
+}
+?>
     <h3 style="text-align: center;">Tela de autenticação</h3>
     <form action="<?= BASE_URL; ?>pages/autenticar.php" method="POST">
         <label for="email">Email:</label>

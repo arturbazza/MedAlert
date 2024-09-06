@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->store_result();
     
     if ($stmt->num_rows > 0) {
-        echo "Este email já está cadastrado!";
+        echo "<p style='color: red; text-align: center;'>Este email já está cadastrado!</p>";
     } else {
         // Inserir o novo usuário no banco de dados
         $sql = "INSERT INTO usuarios (nome, email, senha, telefone, tipo_usuario) VALUES (?, ?, ?, ?, ?)";
@@ -24,9 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sssss", $nome, $email, $senha, $telefone, $tipo_usuario);
 
         if ($stmt->execute()) {
-            echo "Usuário cadastrado com sucesso!";
+            // Redireciona para a página de login com a mensagem de sucesso
+            header('Location: login.php?msg=success');
+            exit;
         } else {
-            echo "Erro ao cadastrar usuário: " . $conn->error;
+            echo "<p style='color: red; text-align: center;'>Erro ao cadastrar usuário: " . $conn->error . "</p>";
         }
     }
 
