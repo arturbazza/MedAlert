@@ -24,9 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("ssssi", $nome_medicamento, $dosagem, $frequencia, $descricao, $id_paciente);
 
     if ($stmt->execute()) {
-        echo "<p>Medicamento adicionado com sucesso!</p>";
+        echo "<p style='text-align: center; color: green;'>Medicamento adicionado com sucesso!</p>";
     } else {
-        echo "<p>Erro ao adicionar medicamento: " . $conn->error . "</p>";
+        echo "<p style='text-align: center; color: green;'>Erro ao adicionar medicamento: " . $conn->error . "</p>";
     }
 }
 
