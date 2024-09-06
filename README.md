@@ -1,6 +1,6 @@
 ## Aplicação MedAlert
 
-### PHP + MySql + HTML5 + Bootstrap 4
+### PHP 8 + MySql 8 + HTML 5 + Bootstrap 4
 
 App MedAlert para projeto de TCC para Técnico em Informática
 
