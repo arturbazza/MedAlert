@@ -24,7 +24,6 @@ $result = $stmt->get_result();
 
 <main>
     <h3 style="text-align: center;">Lista de Alertas</h3>
-
     <ul>
         <?php while ($row = $result->fetch_assoc()): ?>
             <li>
