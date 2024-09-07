@@ -10,26 +10,27 @@ if (!isset($_SESSION['id_usuario'])) {
     exit;
 }
 
-// Verifica se o id do paciente foi passado
+// Verifica se foi enviado o ID do paciente
 if (!isset($_GET['id'])) {
-    header('Location: ' . BASE_URL . 'pages/lista_pacientes.php');
+    echo "<p style='text-align: center; color: red;'>Paciente não encontrado.</p>";
     exit;
 }
 
 $id_paciente = $_GET['id'];
 
-// Recupera os dados do paciente para exibir no formulário
+// Recupera os dados do paciente para edição
 $sql = "SELECT * FROM pacientes WHERE id_paciente = ? AND id_usuario = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ii", $id_paciente, $_SESSION['id_usuario']);
 $stmt->execute();
 $result = $stmt->get_result();
-$paciente = $result->fetch_assoc();
 
-if (!$paciente) {
-    echo "<p style='text-align: center; color: red;'>Paciente não encontrado!</p>";
+if ($result->num_rows === 0) {
+    echo "<p style='text-align: center; color: red;'>Paciente não encontrado ou você não tem permissão para editá-lo.</p>";
     exit;
 }
+
+$paciente = $result->fetch_assoc();
 
 // Lógica para atualizar o paciente
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -42,9 +43,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Converte a data de dd/mm/aaaa para aaaa-mm-dd
     $data_nascimento_formatada = DateTime::createFromFormat('d/m/Y', $data_nascimento)->format('Y-m-d');
 
+    // Atualiza o paciente no banco de dados
     $sql = "UPDATE pacientes SET nome = ?, data_nascimento = ?, sexo = ?, telefone = ?, endereco = ? WHERE id_paciente = ? AND id_usuario = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssi", $nome, $data_nascimento_formatada, $sexo, $telefone, $endereco, $id_paciente, $_SESSION['id_usuario']);
+    $stmt->bind_param("ssssssi", $nome, $data_nascimento_formatada, $sexo, $telefone, $endereco, $id_paciente, $_SESSION['id_usuario']);
 
     if ($stmt->execute()) {
         echo "<p style='text-align: center; color: green;'>Paciente atualizado com sucesso!</p>";
@@ -66,13 +68,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <label for="sexo" style="width: 99%;">Sexo:</label>
         <select id="sexo" name="sexo" required>
-            <option value="M" <?php echo ($paciente['sexo'] == 'M') ? 'selected' : ''; ?>>Masculino</option>
-            <option value="F" <?php echo ($paciente['sexo'] == 'F') ? 'selected' : ''; ?>>Feminino</option>
-            <option value="O" <?php echo ($paciente['sexo'] == 'O') ? 'selected' : ''; ?>>Outro</option>
+            <option value="M" <?php if ($paciente['sexo'] == 'M') echo 'selected'; ?>>Masculino</option>
+            <option value="F" <?php if ($paciente['sexo'] == 'F') echo 'selected'; ?>>Feminino</option>
+            <option value="O" <?php if ($paciente['sexo'] == 'O') echo 'selected'; ?>>Outro</option>
         </select>
 
-        <label for="telefone">Telefone:</label>
-        <input type="text" id="telefone" name="telefone" value="<?php echo $paciente['telefone']; ?>">
+        <label for="telefone">Telefone (somente números):</label>
+        <input type="text" id="telefone" name="telefone" value="<?php echo $paciente['telefone']; ?>" placeholder="00123456789">
 
         <label for="endereco">Endereço:</label>
         <input type="text" id="endereco" name="endereco" value="<?php echo $paciente['endereco']; ?>">
