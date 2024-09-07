@@ -37,4 +37,4 @@ Aplicativo para o controle de medicações com lembretes eficientes e interface 
 #### Tela Alertas
 ![Tela Inicial](imgs/04_alertas.jpg)
 #### Tela Lista Usuários
-![Tela Inicial](imgs/05_lista_usuarios.jpg)
+![Tela Inicial](imgs/05_lista_usuarios_new.jpg)
