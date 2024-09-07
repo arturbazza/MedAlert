@@ -187,7 +187,6 @@ h3 {
 p {
     margin: 10px 0;
 }
-
 .styled-table {
     border-collapse: collapse;
     margin: 25px 0;
@@ -196,6 +195,8 @@ p {
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     width: 100%;
+    border: 1px solid #dddddd;
+    /* Borda fina ao redor da tabela */
 }
 
 .styled-table thead tr {
@@ -207,6 +208,8 @@ p {
 .styled-table th,
 .styled-table td {
     padding: 12px 15px;
+    border: 1px solid #dddddd;
+    /* Borda fina entre as células */
 }
 
 .styled-table tbody tr {

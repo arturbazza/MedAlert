@@ -58,8 +58,8 @@ $result = $stmt->get_result();
                     <td><?= $row['telefone']; ?></td>
                     <td><?= $row['endereco']; ?></td>
                     <td>
-                        <a href="editar_paciente.php?id=<?= $row['id_paciente']; ?>">Editar</a> | 
-                        <a href="?delete_id=<?= $row['id_paciente']; ?>" onclick="return confirm('Tem certeza que deseja excluir este paciente?');">Excluir</a>
+                        <a href="editar_paciente.php?id=<?= $row['id_paciente']; ?>" class="btn-edit">Editar</a>
+                        <a href="?delete_id=<?= $row['id_paciente']; ?>" class="btn-delete" onclick="return confirm('Tem certeza que deseja excluir este paciente?');">Excluir</a>
                     </td>
                 </tr>
             <?php endwhile; ?>

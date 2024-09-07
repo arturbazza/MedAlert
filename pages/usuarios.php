@@ -65,8 +65,8 @@ $result = $conn->query($sql);
                     <td><?= $row['telefone']; ?></td>
                     <td><?= ucfirst($row['tipo_usuario']); ?></td>
                     <td>
-                        <a href="editar_usuario.php?id=<?= $row['id_usuario']; ?>">Editar</a> | 
-                        <a href="?delete_id=<?= $row['id_usuario']; ?>" onclick="return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a>
+                        <a href="editar_usuario.php?id=<?= $row['id_usuario']; ?>" class="btn-edit">Editar</a> 
+                        <a href="?delete_id=<?= $row['id_usuario']; ?>" class="btn-delete" onclick="return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a>
                     </td>
                 </tr>
             <?php endwhile; ?>
