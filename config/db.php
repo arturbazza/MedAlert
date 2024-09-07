@@ -1,30 +1,12 @@
-<?php
-if ($_SERVER['SERVER_NAME'] === "localhost") {
+# Arquivo .env
+DB_LOCAL_SERVERNAME=localhost
+DB_LOCAL_USERNAME=root
+DB_LOCAL_PASSWORD=
+DB_LOCAL_DBNAME=medalert
+DB_LOCAL_BASE_URL=http://localhost/medalert/
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "medalert";
-    $base_url = "http://localhost/medalert/";
-
-} elseif ($_SERVER['SERVER_NAME'] === "medalert.com.br") {
-
-    $servername = "mysql.medalert.com.br";
-    $username = "medalert01";
-    $password = "pixel1953";
-    $dbname = "medalert01";
-    $base_url = "https://medalert.com.br/medalert/";
-
-}
-
-// Criar conexão
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar conexão
-if ($conn->connect_error) {
-    die("Conexão falhou: " . $conn->connect_error);
-}
-
-// Define a constante BASE_URL
-define('BASE_URL', $base_url);
-?>
+DB_PROD_SERVERNAME=mysql.medalert.com.br
+DB_PROD_USERNAME=medalert01
+DB_PROD_PASSWORD=pixel1953
+DB_PROD_DBNAME=medalert01
+DB_PROD_BASE_URL=https://medalert.com.br/medalert/
