@@ -14,12 +14,12 @@ CREATE TABLE pacientes (
     id_paciente INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     data_nascimento DATE NOT NULL,
-    sexo ENUM('M', 'F', 'O') NOT NULL, -- Masculino -- Feminino -- Outro
+    sexo ENUM('M', 'F', 'O') NOT NULL,
     telefone VARCHAR(15),
     endereco VARCHAR(255),
     id_usuario INT,
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE
 );
 
 -- Tabela medicamentos
@@ -31,7 +31,7 @@ CREATE TABLE medicamentos (
     descricao TEXT,
     id_paciente INT,
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_paciente) REFERENCES pacientes(id_paciente)
+    FOREIGN KEY (id_paciente) REFERENCES pacientes(id_paciente) ON DELETE CASCADE
 );
 
 -- Tabela alertas
@@ -42,5 +42,5 @@ CREATE TABLE alertas (
     metodo_alerta ENUM('email', 'sms', 'app') NOT NULL,
     data_confirmacao DATETIME,
     id_medicamento INT,
-    FOREIGN KEY (id_medicamento) REFERENCES medicamentos(id_medicamento)
+    FOREIGN KEY (id_medicamento) REFERENCES medicamentos(id_medicamento) ON DELETE CASCADE
 );
