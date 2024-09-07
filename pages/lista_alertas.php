@@ -23,7 +23,7 @@ $result = $stmt->get_result();
 ?>
 
 <main>
-    <h3 style="text-align: center;">Gerenciar de Alertas</h3>
+    <h3 style="text-align: center;">Gerenciar Alertas</h3>
     <table class="styled-table">
         <thead>
             <tr>
