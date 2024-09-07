@@ -1,2 +1,4 @@
 # Ignorar o arquivo .env
 .env
+db-PLENO.php
+/config/db-PLENO.php
