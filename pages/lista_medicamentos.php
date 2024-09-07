@@ -43,7 +43,7 @@ $result = $stmt->get_result();
                     <td><?= htmlspecialchars($row['descricao']); ?></td>
                     <td><?= htmlspecialchars($row['nome_paciente']); ?></td>
                     <td>
-                        <a href="editar_medicamento.php?id=<?= $row['id_medicamento']; ?>" class="btn-edit">Editar</a> |
+                        <a href="editar_medicamento.php?id=<?= $row['id_medicamento']; ?>" class="btn-edit">Editar</a>
                         <a href="deletar_medicamento.php?id=<?= $row['id_medicamento']; ?>" class="btn-delete" onclick="return confirm('Tem certeza que deseja excluir este medicamento?')">Excluir</a>
                     </td>
                 </tr>
