@@ -1,2 +1,3 @@
 # Ignorar o arquivo .env
 .env
+/config/db-ORIG.php
