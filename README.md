@@ -7,7 +7,7 @@ App MedAlert para projeto de TCC para Técnico em Informática.
 ### O que é?
 #### Gestão de Medicamentos
 
-Facilitamos o controle de medicações com lembretes eficientes e interface intuitiva.
+Aplicativo para o controle de medicações com lembretes eficientes e interface intuitiva.
 
 ### Créditos
 
@@ -16,7 +16,7 @@ Facilitamos o controle de medicações com lembretes eficientes e interface intu
 ### Tecnologias usadas
 
 ###
-<div align="center">
+<div>
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="html5 logo"  />
   <img width="12" />
