@@ -45,28 +45,32 @@ $result = $conn->query($sql);
 <main>
     <h3 style="text-align: center;">Gerenciar Usuários</h3>
     
-    <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; max-width: 800px; margin: 20px auto; background-color: #fff;">
-        <tr style="background-color: #f2f2f2;">
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Telefone</th>
-            <th>Tipo de Usuário</th>
-            <th>Ação</th>
-        </tr>
-        <?php while ($row = $result->fetch_assoc()): ?>
+    <table class="styled-table">
+        <thead>
             <tr>
-                <td><?= $row['id_usuario']; ?></td>
-                <td><?= $row['nome']; ?></td>
-                <td><?= $row['email']; ?></td>
-                <td><?= $row['telefone']; ?></td>
-                <td><?= ucfirst($row['tipo_usuario']); ?></td>
-                <td>
-                    <a href="editar_usuario.php?id=<?= $row['id_usuario']; ?>">Editar</a> | 
-                    <a href="?delete_id=<?= $row['id_usuario']; ?>" onclick="return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a>
-                </td>
-            </tr>
-        <?php endwhile; ?>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Tipo de Usuário</th>
+                <th>Ação</th>
+            </tr>   
+        </thead>
+        <tbody>
+            <?php while ($row = $result->fetch_assoc()): ?>
+                <tr>
+                    <td><?= $row['id_usuario']; ?></td>
+                    <td><?= $row['nome']; ?></td>
+                    <td><?= $row['email']; ?></td>
+                    <td><?= $row['telefone']; ?></td>
+                    <td><?= ucfirst($row['tipo_usuario']); ?></td>
+                    <td>
+                        <a href="editar_usuario.php?id=<?= $row['id_usuario']; ?>">Editar</a> | 
+                        <a href="?delete_id=<?= $row['id_usuario']; ?>" onclick="return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a>
+                    </td>
+                </tr>
+            <?php endwhile; ?>
+        </tbody>
     </table>
 </main>
 

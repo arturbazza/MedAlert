@@ -36,30 +36,34 @@ $result = $stmt->get_result();
 <main>
     <h3 style="text-align: center;">Gerenciar Pacientes</h3>
     
-    <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; max-width: 800px; margin: 20px auto; background-color: #fff;">
-        <tr style="background-color: #f2f2f2;">
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Data de Nascimento</th>
-            <th>Sexo</th>
-            <th>Telefone</th>
-            <th>Endereço</th>
-            <th>Ação</th>
-        </tr>
-        <?php while ($row = $result->fetch_assoc()): ?>
+    <table class="styled-table">
+        <thead>
             <tr>
-                <td><?= $row['id_paciente']; ?></td>
-                <td><?= $row['nome']; ?></td>
-                <td><?= date('d/m/Y', strtotime($row['data_nascimento'])); ?></td>
-                <td><?= $row['sexo']; ?></td>
-                <td><?= $row['telefone']; ?></td>
-                <td><?= $row['endereco']; ?></td>
-                <td>
-                    <a href="editar_paciente.php?id=<?= $row['id_paciente']; ?>">Editar</a> | 
-                    <a href="?delete_id=<?= $row['id_paciente']; ?>" onclick="return confirm('Tem certeza que deseja excluir este paciente?');">Excluir</a>
-                </td>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>Sexo</th>
+                <th>Telefone</th>
+                <th>Endereço</th>
+                <th>Ação</th>
             </tr>
-        <?php endwhile; ?>
+        </thead>
+        <tbody>
+            <?php while ($row = $result->fetch_assoc()): ?>
+                <tr>
+                    <td><?= $row['id_paciente']; ?></td>
+                    <td><?= $row['nome']; ?></td>
+                    <td><?= date('d/m/Y', strtotime($row['data_nascimento'])); ?></td>
+                    <td><?= $row['sexo']; ?></td>
+                    <td><?= $row['telefone']; ?></td>
+                    <td><?= $row['endereco']; ?></td>
+                    <td>
+                        <a href="editar_paciente.php?id=<?= $row['id_paciente']; ?>">Editar</a> | 
+                        <a href="?delete_id=<?= $row['id_paciente']; ?>" onclick="return confirm('Tem certeza que deseja excluir este paciente?');">Excluir</a>
+                    </td>
+                </tr>
+            <?php endwhile; ?>
+        </tbody>
     </table>
 </main>
 
