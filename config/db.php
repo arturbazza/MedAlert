@@ -1,20 +1,21 @@
 <?php
+require __DIR__ . '/vendor/autoload.php'; // Autoload do Composer
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load(); // Carrega as variáveis de ambiente
+
 if ($_SERVER['SERVER_NAME'] === "localhost") {
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "medalert";
-    $base_url = "http://localhost/medalert/";
-
+    $servername = $_ENV['DB_LOCAL_SERVERNAME'];
+    $username = $_ENV['DB_LOCAL_USERNAME'];
+    $password = $_ENV['DB_LOCAL_PASSWORD'];
+    $dbname = $_ENV['DB_LOCAL_DBNAME'];
+    $base_url = $_ENV['DB_LOCAL_BASE_URL'];
 } elseif ($_SERVER['SERVER_NAME'] === "medalert.com.br") {
-
-    $servername = "mysql.medalert.com.br";
-    $username = "medalert01";
-    $password = "pixel1953";
-    $dbname = "medalert01";
-    $base_url = "https://medalert.com.br/medalert/";
-
+    $servername = $_ENV['DB_PROD_SERVERNAME'];
+    $username = $_ENV['DB_PROD_USERNAME'];
+    $password = $_ENV['DB_PROD_PASSWORD'];
+    $dbname = $_ENV['DB_PROD_DBNAME'];
+    $base_url = $_ENV['DB_PROD_BASE_URL'];
 }
 
 // Criar conexão
