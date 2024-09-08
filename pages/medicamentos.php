@@ -51,18 +51,18 @@ $result_pacientes = $stmt_pacientes->get_result();
             <div style="display: flex; align-items: center;">
                 <div style="flex: 1;">
                     <label for="dosagem">Dosagem:</label>
-                    <input type="text" id="dosagem" name="dosagem" placeholder="Ex: 500" style="width: 94%;" required>
+                    <input type="text" id="dosagem" name="dosagem" placeholder="Ex: 500mg" style="width: 94%;" required>
                 </div>
-                <span style="margin-left: 8px;">mg</span>
+                <span style="margin-left: 8px;">Ex: 500mg</span>
             </div>
 
             <!-- Frequência -->
             <div style="display: flex; align-items: center;">
                 <div style="flex: 1;">
                     <label for="frequencia">Frequência:</label>
-                    <input type="text" id="frequencia" name="frequencia" placeholder="Ex: 8" style="width: 94%;" required>
+                    <input type="text" id="frequencia" name="frequencia" placeholder="Ex: 8/8h ou 1 por dia" style="width: 94%;" required>
                 </div>
-                <span style="margin-left: 8px;">horas/dias</span>
+                <span style="margin-left: 8px;">Ex: 8h/8h ou 1 por dia</span>
             </div>
 
             <!-- Descrição -->
