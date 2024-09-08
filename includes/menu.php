@@ -8,8 +8,8 @@
         <li class="dropdown">
             <a href="javascript:void(0)">Pacientes</a>
             <ul class="dropdown-content">
-                <li><a href="<?= BASE_URL; ?>pages/pacientes.php">Adicionar Paciente</a></li>
-                <li><a href="<?= BASE_URL; ?>pages/lista_pacientes.php">Lista Pacientes</a></li>
+                <li><a href="<?= BASE_URL; ?>pages/pacientes.php">Adicionar</a></li>
+                <li><a href="<?= BASE_URL; ?>pages/lista_pacientes.php">Listar</a></li>
             </ul>
         </li>
 
@@ -17,8 +17,8 @@
         <li class="dropdown">
             <a href="javascript:void(0)">Medicamentos</a>
             <ul class="dropdown-content">
-                <li><a href="<?= BASE_URL; ?>pages/medicamentos.php">Adicionar Medicamentos</a></li>
-                <li><a href="<?= BASE_URL; ?>pages/lista_medicamentos.php">Lista Medicamentos</a></li>
+                <li><a href="<?= BASE_URL; ?>pages/medicamentos.php">Adicionar</a></li>
+                <li><a href="<?= BASE_URL; ?>pages/lista_medicamentos.php">Listar</a></li>
             </ul>
         </li>
 
@@ -26,8 +26,8 @@
         <li class="dropdown">
             <a href="javascript:void(0)">Alertas</a>
             <ul class="dropdown-content">
-                <li><a href="<?= BASE_URL; ?>pages/alertas.php">Adicionar Alertas</a></li>
-                <li><a href="<?= BASE_URL; ?>pages/lista_alertas.php">Lista Alertas</a></li>
+                <li><a href="<?= BASE_URL; ?>pages/alertas.php">Adicionar</a></li>
+                <li><a href="<?= BASE_URL; ?>pages/lista_alertas.php">Listar</a></li>
             </ul>
         </li>
 
