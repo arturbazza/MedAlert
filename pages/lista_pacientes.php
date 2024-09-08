@@ -39,7 +39,7 @@ $result = $stmt->get_result();
     <table class="styled-table">
         <thead>
             <tr>
-                <th>ID</th>
+                <!-- th>ID</th -->
                 <th>Nome</th>
                 <th>Data de Nascimento</th>
                 <th>Sexo</th>
@@ -51,7 +51,7 @@ $result = $stmt->get_result();
         <tbody>
             <?php while ($row = $result->fetch_assoc()): ?>
                 <tr>
-                    <td><?= $row['id_paciente']; ?></td>
+                    <!-- td><?= $row['id_paciente']; ?></td -->
                     <td><?= $row['nome']; ?></td>
                     <td><?= date('d/m/Y', strtotime($row['data_nascimento'])); ?></td>
                     <td><?= $row['sexo']; ?></td>
