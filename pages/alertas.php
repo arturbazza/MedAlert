@@ -56,8 +56,8 @@ $result_medicamentos = $stmt_medicamentos->get_result();
         <label for="metodo_alerta">Método de Alerta:</label>
         <select id="metodo_alerta" name="metodo_alerta" required>
             <option value="email">Email</option>
-            <option value="sms">SMS</option>
-            <option value="notificacao">Notificação</option>
+            <!-- option value="sms">SMS</option -->
+            <!-- option value="notificacao">Notificação</option -->
         </select>
 
         <label for="id_medicamento">Medicamento:</label>
