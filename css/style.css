@@ -392,3 +392,20 @@ p {
         background-color: #fff;
     }
 }
+
+.notificacoes {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.notificacoes h4 {
+    margin: 0 0 10px 0;
+}
+
+.notificacoes p {
+    margin: 0;
+    font-size: 14px;
+}

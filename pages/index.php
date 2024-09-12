@@ -10,6 +10,9 @@ if (!isset($_SESSION['id_usuario'])) {
     exit;
 }
 
+// Inclui o arquivo de notificações
+include_once __DIR__ . '/notificacoes.php';
+
 // Recupera o nome do usuário logado
 $sql_usuario = "SELECT nome FROM usuarios WHERE id_usuario = ?";
 $stmt_usuario = $conn->prepare($sql_usuario);
@@ -46,20 +49,21 @@ $stmt_alertas->bind_param("i", $_SESSION['id_usuario']);
 $stmt_alertas->execute();
 $result_alertas = $stmt_alertas->get_result();
 
+$hora_atual = date('d/m/Y H:i:s');
+
 if ($_SERVER['SERVER_NAME'] === "localhost") {
 
-    echo "<p style='color: green; text-align: center;'>localhost</p>";
+    echo "<br><div style='color: green; text-align: center;'>localhost<br>".$hora_atual."</div>";
 
 } elseif ($_SERVER['SERVER_NAME'] === "medalert.com.br") {
 
-    echo "<br><div style='color: green; text-align: center;'>Uma dose de cuidado.</div>";
+    echo "<br><div style='color: green; text-align: center;'>Uma dose de cuidado.<br>".$hora_atual."</div>";
 
 } elseif ($_SERVER['SERVER_NAME'] === "192.168.0.15") {
 
-    echo "<p style='color: green; text-align: center;'>SRVBLUR</p>";
+    echo "<br><div style='color: green; text-align: center;'>SRVBLUR<br>".$hora_atual."</div>";
 }
 ?>
-
 
 <main>
     <h3 style="text-align: center;">Bem-vindo, <?= htmlspecialchars($usuario['nome']); ?>!</h3>
