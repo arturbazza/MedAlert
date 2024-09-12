@@ -46,7 +46,20 @@ $stmt_alertas->bind_param("i", $_SESSION['id_usuario']);
 $stmt_alertas->execute();
 $result_alertas = $stmt_alertas->get_result();
 
+if ($_SERVER['SERVER_NAME'] === "localhost") {
+
+    echo "<p style='color: green; text-align: center;'>localhost</p>";
+
+} elseif ($_SERVER['SERVER_NAME'] === "medalert.com.br") {
+
+    echo "<br><div style='color: green; text-align: center;'>Uma dose de cuidado.</div>";
+
+} elseif ($_SERVER['SERVER_NAME'] === "192.168.0.15") {
+
+    echo "<p style='color: green; text-align: center;'>SRVBLUR</p>";
+}
 ?>
+
 
 <main>
     <h3 style="text-align: center;">Bem-vindo, <?= htmlspecialchars($usuario['nome']); ?>!</h3>

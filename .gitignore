@@ -1,4 +1,5 @@
 # Ignorar o arquivo .env
 .env
-/config/db.php
 .idea
+/config/db.php
+/config/db-dev.php
