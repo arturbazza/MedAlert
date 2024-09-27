@@ -125,7 +125,7 @@ Aplicativo Web para o controle de medicações com lembretes eficientes e interf
 
 ### Créditos
 
-<p align="left">Artur Bazzanella<br>Porto Alegre - RS - Brasil<br>Formando para Técnico em Informática<br><a href="https://www.fonzie.com.br" targe="_blank">www.fonzie.com.br</a><br><a href="mailto:artur@fonzie.com.br">artur@fonzie.com.br</a></p>
+<p align="left">Artur Bazzanella<br>Porto Alegre - RS - Brasil<br>Formando para Técnico em Informática<br><a href="https://www.fonzie.com.br" target="_blank">www.fonzie.com.br</a><br><a href="mailto:artur@fonzie.com.br">artur@fonzie.com.br</a></p>
 
 ### Tecnologias usadas
 
