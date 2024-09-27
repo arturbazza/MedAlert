@@ -19,7 +19,7 @@ Aplicativo Web com notificações sonoras e visuais para auxiliar na administra�
 
 ### Tecnologias usadas
 
-### HTML 5 + CSS 3 + JavaScript + PHP 8 + MySql 8
+### HTML 5 + CSS 3 + JavaScript + JQuery + PHP 8 + MySql 8
 
 <div>
   <img width="12" />
