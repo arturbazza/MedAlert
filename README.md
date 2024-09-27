@@ -11,6 +11,12 @@ Aplicativo Web com notificações sonoras e visuais para auxiliar na administra�
 
 <p align="left">Artur Bazzanella<br>Porto Alegre - RS - Brasil<br>Formando para Técnico em Informática<br><a href="https://www.fonzie.com.br" target="_blank">www.fonzie.com.br</a><br><a href="mailto:artur@fonzie.com.br">artur@fonzie.com.br</a></p>
 
+### Links
+
+<p align="left">
+- Site: <a href="https://www.medalert.com.br" target="_blank">www.medalert.com.br</a><br>
+- Sistema: <a href="https://medalert.com.br/medalert/" target="_blank">medalert.com.br/medalert/</a>
+
 ### Tecnologias usadas
 
 ### HTML 5 + CSS 3 + JavaScript + PHP 8 + MySql 8
