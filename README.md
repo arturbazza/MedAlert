@@ -1,4 +1,4 @@
-## Aplicação MedAlert
+## Aplicação MedAlert v0.1-beta
 
 App MedAlert para projeto de TCC para Técnico em Informática.
 
