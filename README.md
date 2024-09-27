@@ -114,7 +114,7 @@ CREATE TABLE alertas (
 
 ## Aplicação MedAlert
 
-### PHP 8 + MySql 8 + HTML 5 JavaScript
+### HTML 5 + CSS 3 + JavaScript + PHP 8 + MySql 8
 
 App MedAlert para projeto de TCC para Técnico em Informática.
 
