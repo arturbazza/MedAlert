@@ -1,6 +1,6 @@
 ## Aplicação MedAlert v0.1-beta
 
-App MedAlert para projeto de TCC na formação para o Curso Técnico em Informática.
+Aplicação Web MedAlert desenvolvida como parte do projeto de TCC para o Curso Técnico em Informática.
 
 ### O que é?
 #### Gestão de Medicamentos
