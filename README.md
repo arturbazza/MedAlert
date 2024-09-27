@@ -1,5 +1,35 @@
+## Aplicação MedAlert
 
-## MedAlert - Tutorial de Instalação
+App MedAlert para projeto de TCC para Técnico em Informática.
+
+### O que é?
+#### Gestão de Medicamentos
+
+Aplicativo Web com notificações sonoras e visuais para auxiliar na administração de medicamentos a idosos; onde enfermeiros, cuidadores e responsáveis podem monitorar remotamente o cumprimento das tarefas, minimizando riscos e promovendo um acompanhamento mais eficiente, garantindo que os idosos tomem seus medicamentos nos horários corretos.
+
+### Créditos
+
+<p align="left">Artur Bazzanella<br>Porto Alegre - RS - Brasil<br>Formando para Técnico em Informática<br><a href="https://www.fonzie.com.br" target="_blank">www.fonzie.com.br</a><br><a href="mailto:artur@fonzie.com.br">artur@fonzie.com.br</a></p>
+
+### Tecnologias usadas
+
+### HTML 5 + CSS 3 + JavaScript + PHP 8 + MySql 8
+
+<div>
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="html5 logo"  />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="css3 logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" height="40" alt="jquery logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" height="40" alt="php logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" height="40" alt="mysql logo"  />
+</div>
+<br><br>
+
+# Tutorial de Instalação
 
 ### 1. Clonando o Repositório
 
@@ -112,37 +142,9 @@ CREATE TABLE alertas (
 
 3. Esse script irá buscar os dados do banco de dados e enviar notificações por email e SMS para os usuários.
 
-## Aplicação MedAlert
+<br><br>
 
-### HTML 5 + CSS 3 + JavaScript + PHP 8 + MySql 8
-
-App MedAlert para projeto de TCC para Técnico em Informática.
-
-### O que é?
-#### Gestão de Medicamentos
-
-Aplicativo Web para o controle de medicações com lembretes eficientes e interface intuitiva.
-
-### Créditos
-
-<p align="left">Artur Bazzanella<br>Porto Alegre - RS - Brasil<br>Formando para Técnico em Informática<br><a href="https://www.fonzie.com.br" target="_blank">www.fonzie.com.br</a><br><a href="mailto:artur@fonzie.com.br">artur@fonzie.com.br</a></p>
-
-### Tecnologias usadas
-
-<div>
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="html5 logo"  />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="css3 logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" height="40" alt="jquery logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" height="40" alt="php logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" height="40" alt="mysql logo"  />
-</div>
-
-### Prints Screems:
+# Prints Screems:
 #### Tela Inicial
 ![Tela Inicial](imgs/01_inicio.jpg)
 #### Tela Cadastro Paciente
