@@ -1,11 +1,11 @@
 <?php
 function sendMail($de,$para,$mensagem,$assunto)
 {
-	$assunto = "Mensagem do site: bazzanella.com.br!";
+	$assunto = "Mensagem do site: medalert.com.br.";
 	$para = "arturbc@gmail.com";
-	$de = "artur@bazzanella.com.br";
+	$de = "contato@medalert.com.br";
 	
-    require_once('phpmailer/class.phpmailer.php');
+    require_once('class.phpmailer.php');
     $mail = new PHPMailer(true);
 
     $mail->IsSMTP();

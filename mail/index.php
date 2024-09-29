@@ -1,17 +1,22 @@
-<?php 
-include "funcao.php";
+<?php
+include_once '../config/db.php';
+
+echo "<b>" . " BASE_DIR: " . BASE_URL . " - DIR: " . __DIR__ . " " . " - SERVERNAME: " . $servername . " - USERNAME: "  . $username . " - PASS: " . $password. " - DBNAME: " . $dbname . " - BASE_URL: " . $base_url . "</b><br><br>";
+
+include_once '../mail/funcao.php';
 
 if(isset($_POST['nome']) && !empty($_POST['nome']))
 {
     if(sendMail($_POST['email'],'arturbc@gmail.com.br', $_POST['mensagem'], 'Formulario de contato'))
     {
         echo "Sua mensagem foi enviada com sucesso!";
+        echo "<br><a href='index.php'>Voltar</a>";
     }
     else
     {
         echo "Ocorreu um erro ao enviar";
-    }
-    echo "<br><a href='index.php'>Voltar</a>";
+        echo "<br><a href='index.php'>Voltar</a>";
+    }    
 }
 ?>
 <!DOCTYPE html>

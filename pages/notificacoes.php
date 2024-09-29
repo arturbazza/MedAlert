@@ -1,6 +1,6 @@
 <?php
 //session_start();
-//include_once __DIR__ . '/../config/db.php';
+include_once __DIR__ . '/../config/db.php';
 
 // Função para enviar e-mail
 function enviarEmail($email, $nomePaciente, $medicamento, $dataHoraAlerta) {
@@ -12,6 +12,7 @@ function enviarEmail($email, $nomePaciente, $medicamento, $dataHoraAlerta) {
     
     $headers = "From: no-reply@medalert.com\r\n";
     mail($email, $assunto, $mensagem, $headers);
+
 }
 
 // Consulta os alertas que vão ocorrer nos próximos 10 minutos
