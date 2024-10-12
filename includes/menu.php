@@ -44,3 +44,11 @@ document.getElementById('menu-toggle').addEventListener('click', function() {
     menu.classList.toggle('active');
 });
 </script>
+<br>
+<!-- Banner centralizado -->
+<div class="banner">
+    <a href="https://www.weinmann.com.br/">
+        <img src="<?= BASE_URL; ?>imgs/ROSA-20243840x960V3.png" alt="Ir para o site">
+    </a>
+    <!-- span class="banner-text">TEXTO!</!-->
+</div>

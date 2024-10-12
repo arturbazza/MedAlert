@@ -28,6 +28,12 @@ header .logo {
 
 }
 
+div a {
+    text-align: center;
+    
+    text-decoration: #1065b9;
+}
+
 nav {
      width: 100%;
     background-color: #bdd6f0;
@@ -122,6 +128,40 @@ footer {
     main {
         margin: 10px;
     }
+}
+
+/* Estilo para o banner */
+.banner {
+    text-align: center; /* Centraliza o banner na página */
+    margin: 20px auto;
+    max-width: 100%;
+}
+
+.banner img {
+    width: 60%;
+    max-width: 1200px; /* Tamanho máximo do banner em desktops */
+    height: auto;
+}
+
+/*.banner-text {
+    display: block;
+    color: #1065b9;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+*/
+/* Responsividade para dispositivos móveis */
+@media (max-width: 500px) {
+    .banner img {
+        content: url('<?= BASE_URL; ?>imgs/ROSA-2024375x250V3.png'); /* Troca de imagem para mobile */
+        max-width: 100%; /* Ajusta a largura da imagem no mobile */
+    }
+
+    /*.banner-text {
+        font-size: 18px; 
+    }
+    */
 }
 
 /* Estilos para o conteúdo principal */
