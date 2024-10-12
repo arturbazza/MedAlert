@@ -133,13 +133,13 @@ footer {
 /* Estilo para o banner */
 .banner {
     text-align: center; /* Centraliza o banner na página */
-    margin: 20px auto;
+    /*margin: 20px auto; */
     max-width: 100%;
 }
 
 .banner img {
-    width: 60%;
-    max-width: 1200px; /* Tamanho máximo do banner em desktops */
+    width: 40%;
+    max-width: 800px; /* Tamanho máximo do banner em desktops */
     height: auto;
 }
 
@@ -152,18 +152,18 @@ footer {
 
 */
 /* Responsividade para dispositivos móveis */
-@media (max-width: 500px) {
+/*@media (max-width: 500px) {
     .banner img {
-        content: url('<?= BASE_URL; ?>imgs/ROSA-2024375x250V3.png'); /* Troca de imagem para mobile */
-        max-width: 100%; /* Ajusta a largura da imagem no mobile */
+        content: url('<?= BASE_URL; ?>imgs/ROSA-2024375x250V3.png'); 
+        max-width: 100%;
     }
 
     /*.banner-text {
         font-size: 18px; 
     }
-    */
+    
 }
-
+*/
 /* Estilos para o conteúdo principal */
 main {
     padding: 20px;

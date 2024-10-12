@@ -1,4 +1,3 @@
-<br>
 <!-- Banner centralizado -->
 <div class="banner">
     <a href="https://www.weinmann.com.br/" target="_blank">
@@ -6,7 +5,6 @@
     </a>
     <!-- span class="banner-text">TEXTO!</!-->
 </div>
-<br>
 <footer>
     <p>Copyright © consit 2024 all right reserved <a href="https://www.fonzie.com.br" target="_blank"style="text-decoration: none; color: inherit;" title="Visite o site da Fonzie Agência Digital">Fonzie Agência Digital</a></p>
 </footer>
